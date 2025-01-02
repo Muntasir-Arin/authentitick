@@ -1,0 +1,18 @@
+syntax = "proto3";
+
+package ticket;
+
+service TicketService {
+  // RPC method to verify a ticket.
+  rpc VerifyTicket (VerifyTicketRequest) returns (VerifyTicketResponse);
+}
+
+message VerifyTicketRequest {
+  string ticketCode = 1; // The ticket code to verify.
+  string eventId = 2;    // The ID of the event the ticket belongs to.
+}
+
+message VerifyTicketResponse {
+  bool success = 1;      // Whether the ticket was successfully verified.
+  string message = 2;    // Additional information about the result.
+}
